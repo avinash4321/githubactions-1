@@ -3,7 +3,7 @@ name: Generate ASCII ARTWORK
 on: push
 
 jobs:
-    first_job: 
+    second_generate_ascii_art: 
         runs-on: ubuntu-latest
         steps:
         - name: Checkout Repo
@@ -17,7 +17,7 @@ jobs:
           run: cowsay -f dragon "Run for cover, I am a DRAGON ...... ROARRRR" >> dragon.txt
 
         - name: Test if file exists
-          run: grep -i dragon.txt
+          run: grep -i "dragon" dragon.txt
         
         - name: Read the text file
           run: cat dragon.txt
