@@ -3,7 +3,7 @@ name: Generate ASCII ARTWORK
 on: push
 
 jobs:
-    second_generate_ascii_art: 
+    build_job_1: 
         runs-on: ubuntu-latest
         steps:
         - name: Checkout Repo
@@ -19,6 +19,20 @@ jobs:
           run: |
             chmod +x ascii-script.sh
             ./ascii-script.sh 
+
+    test_job_2: 
+        needs: build_job_1
+        runs-on: ubuntu-latest
+        steps:
+        - name: Find the file
+          run: grep -i "dragon" dragon.txt
+
+    deploy_job_3: 
+        needs: test_job_2
+        runs-on: ubuntu-latest
+        steps:
+        - name: Read the file
+          run: cat dragon.txt
 
 
         # - name: Generate ASCII art work
