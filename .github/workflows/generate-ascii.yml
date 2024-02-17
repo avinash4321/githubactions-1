@@ -12,20 +12,26 @@ jobs:
         - name: Install Cowsay library
           run: sudo apt-get install cowsay -y
 
-        
-        - name: Generate ASCII art work
-          run: cowsay -f dragon "Run for cover, I am a DRAGON ...... ROARRRR" >> dragon.txt
+        - name: List the files
+          run: ls -ltra
 
-        - name: Test if file exists
-          run: grep -i "dragon" dragon.txt
+        - name: Run the script file
+          run: ./ascii-script.sh
+
+
+        # - name: Generate ASCII art work
+        #   run: cowsay -f dragon "Run for cover, I am a DRAGON ...... ROARRRR" >> dragon.txt
+
+        # - name: Test if file exists
+        #   run: grep -i "dragon" dragon.txt
         
-        - name: Read the text file
-          run: cat dragon.txt
+        # - name: Read the text file
+        #   run: cat dragon.txt
         
-        - name: List and Read File
-          run: |
-            echo "My second github actions task"
-            ls -ltra
+        # - name: List and Read File
+        #   run: |
+        #     echo "My second github actions task"
+        #     ls -ltra
 
         # - name: List files
         #   run: ls
